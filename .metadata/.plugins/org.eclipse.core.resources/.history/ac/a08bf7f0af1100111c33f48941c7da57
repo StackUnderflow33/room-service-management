@@ -1,0 +1,21 @@
+@Service
+public class LostItemServiceImpl implements LostItemService {
+
+    private final LostItemRepository repository;
+
+    public LostItemServiceImpl(LostItemRepository repository) {
+        this.repository = repository;
+    }
+
+    public LostItem save(LostItem item) {
+        return repository.save(item);
+    }
+
+    public List<LostItem> getAll() {
+        return repository.findAll();
+    }
+
+    public void claim(Long id) {
+        repository.deleteById(id);
+    }
+}

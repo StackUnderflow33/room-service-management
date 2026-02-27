@@ -1,0 +1,5 @@
+package com.example.room.enums;
+
+public class RequestType {
+
+}

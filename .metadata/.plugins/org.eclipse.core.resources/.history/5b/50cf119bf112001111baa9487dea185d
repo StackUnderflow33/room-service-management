@@ -1,0 +1,17 @@
+package com.example.room.service;
+
+import com.example.room.entity.LostItem;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+
+public interface LostItemService {
+
+    LostItem reportLostOrFound(LostItem item, MultipartFile file);
+
+    List<LostItem> getAll();
+
+    LostItem verify(Long id, boolean verified);
+
+    void claimAndDelete(Long id);
+}

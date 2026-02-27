@@ -1,26 +1,25 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import RoomServiceDashboard from "./pages/RoomServiceDashboard";
+import { useState } from "react";
+import Checklist from "./components/Checklist";
+import ServiceRequest from "./components/ServiceRequest";
+import LostFound from "./components/LostFound";
 import "./App.css";
 
-function App() {
-  return (
-    <Router>
-      <nav className="navbar shadow-sm">
-  <span className="navbar-brand">Hotel Management Portal</span>
-  <div className="d-flex">
-    <Link to="/room-service" className="btn">
-      🍽️ Room Service
-    </Link>
-  </div>
-</nav>
+export default function App() {
+  const [page, setPage] = useState("checklist");
 
-      <div className="container mt-4">
-        <Routes>
-          <Route path="/room-service" element={<RoomServiceDashboard />} />
-        </Routes>
+  return (
+    <div className="container">
+      <h1>🏨 Room Service Management</h1>
+
+      <div className="nav">
+        <button onClick={() => setPage("checklist")}>Checklist</button>
+        <button onClick={() => setPage("service")}>Service Request</button>
+        <button onClick={() => setPage("lost")}>Lost & Found</button>
       </div>
-    </Router>
+
+      {page === "checklist" && <Checklist />}
+      {page === "service" && <ServiceRequest />}
+      {page === "lost" && <LostFound />}
+    </div>
   );
 }
-
-export default App;

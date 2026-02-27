@@ -1,0 +1,42 @@
+package com.example.room.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "room_checklist")
+public class RoomChecklist {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String roomNumber;
+
+    private boolean food;
+    private boolean laundry;
+    private boolean cleaning;
+    private boolean maintenance;
+
+    private String status; // CHECKIN / CHECKOUT
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getRoomNumber() { return roomNumber; }
+    public void setRoomNumber(String roomNumber) { this.roomNumber = roomNumber; }
+
+    public boolean isFood() { return food; }
+    public void setFood(boolean food) { this.food = food; }
+
+    public boolean isLaundry() { return laundry; }
+    public void setLaundry(boolean laundry) { this.laundry = laundry; }
+
+    public boolean isCleaning() { return cleaning; }
+    public void setCleaning(boolean cleaning) { this.cleaning = cleaning; }
+
+    public boolean isMaintenance() { return maintenance; }
+    public void setMaintenance(boolean maintenance) { this.maintenance = maintenance; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+}

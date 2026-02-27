@@ -1,0 +1,3 @@
+public interface ChecklistRepository extends JpaRepository<RoomChecklist, Long> {
+    Optional<RoomChecklist> findByRoomNumber(String roomNumber);
+}

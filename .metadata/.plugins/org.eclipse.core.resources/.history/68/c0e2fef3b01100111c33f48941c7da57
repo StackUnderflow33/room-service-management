@@ -1,0 +1,54 @@
+package com.example.room.entity;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "room_checklists")
+public class RoomChecklist {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String roomNumber;
+
+    private boolean foodService;
+    private boolean laundryService;
+    private boolean cleaningService;
+    private boolean maintenanceService;
+
+    private LocalDateTime checkInTime;
+    private LocalDateTime checkOutTime;
+
+    private boolean checkedOut;
+
+    // ===== GETTERS & SETTERS =====
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getRoomNumber() { return roomNumber; }
+    public void setRoomNumber(String roomNumber) { this.roomNumber = roomNumber; }
+
+    public boolean isFoodService() { return foodService; }
+    public void setFoodService(boolean foodService) { this.foodService = foodService; }
+
+    public boolean isLaundryService() { return laundryService; }
+    public void setLaundryService(boolean laundryService) { this.laundryService = laundryService; }
+
+    public boolean isCleaningService() { return cleaningService; }
+    public void setCleaningService(boolean cleaningService) { this.cleaningService = cleaningService; }
+
+    public boolean isMaintenanceService() { return maintenanceService; }
+    public void setMaintenanceService(boolean maintenanceService) { this.maintenanceService = maintenanceService; }
+
+    public LocalDateTime getCheckInTime() { return checkInTime; }
+    public void setCheckInTime(LocalDateTime checkInTime) { this.checkInTime = checkInTime; }
+
+    public LocalDateTime getCheckOutTime() { return checkOutTime; }
+    public void setCheckOutTime(LocalDateTime checkOutTime) { this.checkOutTime = checkOutTime; }
+
+    public boolean isCheckedOut() { return checkedOut; }
+    public void setCheckedOut(boolean checkedOut) { this.checkedOut = checkedOut; }
+}

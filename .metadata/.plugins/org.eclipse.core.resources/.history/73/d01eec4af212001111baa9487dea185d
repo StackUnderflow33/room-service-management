@@ -1,0 +1,15 @@
+package com.example.room.service;
+
+import com.example.room.entity.LostItem;
+import java.util.List;
+
+public interface LostItemService {
+
+    LostItem save(LostItem item);
+
+    List<LostItem> getAll();
+
+    LostItem verify(Long id, boolean verified);
+
+    void claim(Long id);
+}
