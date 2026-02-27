@@ -1,0 +1,6 @@
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.room.entity.LostItem;
+
+public interface LostItemRepository extends JpaRepository<LostItem, Long> {
+}

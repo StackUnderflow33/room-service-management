@@ -1,0 +1,17 @@
+@Service
+public class ChecklistServiceImpl implements ChecklistService {
+
+    private final ChecklistRepository repository;
+
+    public ChecklistServiceImpl(ChecklistRepository repository) {
+        this.repository = repository;
+    }
+
+    public RoomChecklist save(RoomChecklist checklist) {
+
+        repository.findByRoomNumber(checklist.getRoomNumber())
+                .ifPresent(existing -> checklist.setId(existing.getId()));
+
+        return repository.save(checklist);
+    }
+}
